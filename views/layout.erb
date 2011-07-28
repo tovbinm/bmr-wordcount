@@ -3,14 +3,14 @@
     <script type="text/javascript" defer>
 
       function map() {
-        var words = document.body.innerHTML.split(/\n|\s/).length;
+        var words = document.body.innerHTML.split(/\n|\s/).length;	
         emit('reduce', {'count': words});
       }
 
       function reduce() {
         var sum = 0;
-        var docs = document.body.innerHTML.split(/\n/);
-        for (num in docs) { sum += ((parseInt(num) > 0) ? parseInt(num) : 0) }
+        var docs = document.body.innerHTML.split(/\|/);
+	for(i=0;i<docs.length;i++){ sum += ((parseInt(docs[i]) > 0) ? parseInt(docs[i]) : 0); }	
         emit('finalize', {'sum': sum});
       }
 

@@ -15,6 +15,7 @@ configure do
   set :map_jobs, Dir.glob("data/*.txt")
   set :reduce_jobs, []
   set :result, nil
+  set :bind, '0.0.0.0'
 end
 
 get "/" do
